@@ -1,3 +1,6 @@
+import time
+start_time = time.time()
+
 # Modify the Python Script to Disable GPU
 import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
@@ -19,11 +22,16 @@ square_path = np.array([
 ])
 
 # Generate the training data by repeating the square path
-num_repeats = 4
+num_repeats = 40
 data = np.tile(square_path, (num_repeats, 1))
 
+# Initial point modification
+mod_square_path = square_path
+mod_square_path[0] = [0.25, 0.25]
+mod_data = np.tile(mod_square_path, (num_repeats, 1))
+
 # Prepare training data
-x_train = data[:-1].reshape(-1, 1, 2)
+x_train = mod_data[:-1].reshape(-1, 1, 2)
 y_train = data[1:].reshape(-1, 2)
 
 # Define the RNN model
@@ -36,10 +44,16 @@ model = models.Sequential([
 model.compile(optimizer='adam', loss='mse')
 
 # Train the model
-model.fit(x_train, y_train, epochs=300, verbose=0)
+model.fit(x_train, y_train, epochs=900, verbose=0)
+
+fit_time = time.time()
+print(f"Tempo de execução até o treinemento: {fit_time - start_time} segundos")
 
 # Generate predictions
 predictions = model.predict(x_train[:5])
+
+predict_time = time.time()
+print(f"Tempo de execução até a predição: {predict_time - start_time} segundos")
 
 # Plot the results
 plt.figure(figsize=(10, 6))

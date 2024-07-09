@@ -17,6 +17,7 @@
 \usepackage[normalem]{ulem}               % to striketrhourhg text
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{hyperref}
 \newcommand\redout{\bgroup\markoverwith
 {\textcolor{red}{\rule[0.5ex]{2pt}{0.8pt}}}\ULon}
 \renewcommand{\lstlistingname}{Código}% Listing -> Algorithm
@@ -162,20 +163,115 @@ plt.show()
    
     \textbf{Resposta:} \par
 
+    Como dito no passo (d) do item anterior, o treinamento é ralizado utilizando a função "fit" do modelo. Utilizando a configuração inicial, com 300 épocas, o treinamento demorou cerca de 11 segundos.
+
+
     \item Faça a previsão de algumas trajetórias, quando o ponto inicial varia. O que você conclui?
    
     \textbf{Resposta:} \par
+
+    Foi feita a previsão para o ponto inicial original do código dado, $(x_1=0.25$ e $x_2=0.25)$ e depois foram testados os pontos $(x_1=0.00$ e $x_2=0.00)$, $(x_1=0.50$ e $x_2=0.50)$ e $(x_1=0.75$ e $x_2=0.25)$.
+    \begin{figure}[H]
+        \caption{Previsão para $(x_1=0.25$ e $x_2=0.25)$}
+           \centering
+           \includegraphics[height=8cm]{Item_3_25_25.png}
+    \end{figure}
+    \begin{figure}[H]
+        \caption{Previsão para $(x_1=0.00$ e $x_2=0.00)$}
+           \centering
+           \includegraphics[height=8cm]{Item_3_00_00.png}
+    \end{figure}
+    \begin{figure}[H]
+        \caption{Previsão para $(x_1=0.50$ e $x_2=0.50)$}
+           \centering
+           \includegraphics[height=8cm]{Item_3_50_50.png}
+    \end{figure}
+    \begin{figure}[H]
+        \caption{Previsão para $(x_1=0.75$ e $x_2=0.25)$}
+           \centering
+           \includegraphics[height=8cm]{Item_3_75_25.png}
+    \end{figure}
+    
+    O tempo de execução foi cerca de 11,4 segundos, o que demonstra que a maior parte do custo computacional é para o treinamento da rede, sendo o tempo para a previsão deste problema específico irrelevante. O valor inicial $(x_1=0.25$ e $x_2=0.25)$ foi o que apresentou o melhor resultado, uma vez que o polígono formado pelo menos foi fechado.
+
 
     \item Modifique a RNN usada e observe o que acontece.
 
     \textbf{Resposta:} \par
 
+    Para este teste, o ponto inicial foi retornado para a configuração original $(x_1=0.25$ e $x_2=0.25)$ e foram testadas diferentes combinações de épocas e número de repetições.
+
+    \begin{table}[H]
+        \centering
+        \caption{Resultados das modificações}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nº Repetições & Épocas & Tempo Treinamento (s) & Tempo Total (s) \\
+            \hline
+            4 & 300 & 12 & 12.2 \\
+            \hline
+            40 & 300 & 13.5 & 13.7 \\
+            \hline
+            400 & 300 & 26.4 & 26.6 \\
+            \hline
+            40 & 600 & 19.6 & 19.8 \\
+            \hline
+            40 & 900 & 29.2 & 29.1 \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    Pela tabela 1 é possível observar o aumento do tempo de execução, mais específicamente do tempo de treinamento, tanto com o aumento do número de repetições quanto com o aumento do número de épocas. Os resultados das previsões podem ser visualizados nas figuras abaixo.
+    
+
+    \begin{figure}[H]
+        \caption{Previsão para 4 repetições e 300 épocas}
+           \centering
+           \includegraphics[height=8cm]{Item_4_4_300.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \caption{Previsão para 40 repetições e 300 épocas}
+           \centering
+           \includegraphics[height=8cm]{Item_4_40_300.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \caption{Previsão para 400 repetições e 300 épocas}
+           \centering
+           \includegraphics[height=8cm]{Item_4_400_300.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \caption{Previsão para 40 repetições e 600 épocas}
+           \centering
+           \includegraphics[height=8cm]{Item_4_40_600.png}
+    \end{figure}
+
+
+    \begin{figure}[H]
+        \caption{Previsão para 40 repetições e 900 épocas}
+           \centering
+           \includegraphics[height=8cm]{Item_4_40_900.png}
+    \end{figure}
+    
+    Pelas figuras foi possível observar que o impacto do aumento do número de repetições na precisão da previsão foi muito maior que o impacto do aumento do número de épocas, o que demonstra a importância do tamanho do dataset de treinamento para o resultado de suas previsões.
+
     \item Quais os pontos principais que você concluiu do artigo “Serial Order A Parallel Distributed Processing Approach”?
         
     \textbf{Resposta:} \par
 
+    A teoria de Michael I. Jordan sobre ordem serial em sequências de ações usa redes neurais para entender e reproduzir a ordem das ações ao longo do tempo. Essas redes mantêm uma "memória" do que já aconteceu, usando conexões que alimentam as saídas de volta para as entradas, ajudando a lembrar das ações passadas. A rede aprende ajustando seus parâmetros para reduzir erros entre o que foi previsto e o que realmente aconteceu.
+
+    Isso faz com que a rede consiga generalizar a partir de sequências aprendidas e continuar funcionando bem, mesmo com pequenas perturbações. Essencialmente, a rede se torna uma memória dinâmica que pode voltar às suas trajetórias aprendidas, garantindo que as sequências de ações sejam produzidas corretamente, mesmo começando de pontos diferentes.
+
 \end{enumerate}
 
-\lstinputlisting[language=Python,caption=código fornecido completo]{Lista_1a.py}
+\section*{Código}
+
+O código abaixo encontra-se no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}, bem como o arquivo LaTex com o relatório.
+
+
+\lstinputlisting[language=Python,caption=código fornecido completo com algumas modificações]{Lista_1a.py}
 
 \end{document}
