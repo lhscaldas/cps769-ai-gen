@@ -44,7 +44,7 @@ Cada pasta contém os arquivos relacionados à respectiva lista de exercícios (
 
 ## Contato
 
-Para dúvidas ou mais informações, entre em contato comigo lhscaldas@cos.ufrj.br.
+Para dúvidas ou mais informações, entre em contato com lhscaldas@cos.ufrj.br.
 
 ---
 
