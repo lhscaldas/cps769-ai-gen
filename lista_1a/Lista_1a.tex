@@ -23,6 +23,9 @@
 \renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
 
 \usepackage[top=3cm,left=2cm,bottom=2cm, right=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
 
 % Configuração para destacar a sintaxe do Python
 \lstset{ 
@@ -105,6 +108,39 @@ model = models.Sequential([
 ])
 model.compile(optimizer='adam', loss='mse')            
         \end{lstlisting}
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}[
+                neuron/.style={draw, circle, minimum size=2cm, align=center},
+                lstm/.style={draw, rectangle, minimum width=2cm, minimum height=1cm, align=center},
+                ->, >=stealth
+            ]
+        
+            % Nodes
+            \node[neuron] (input1) at (0, 1.1) {Input 1};
+            \node[neuron] (input2) at (0, -1.1) {Input 2};
+            \node[lstm] (lstm) at (4, 0) {Camada LSTM \\ (50 neurônios)};
+            \node[neuron] (output1) at (8, 1.1) {Output 1};
+            \node[neuron] (output2) at (8, -1.1) {Output 2};
+        
+            % Brace for Dense Layer
+            \draw [decorate,decoration={brace,amplitude=10pt,mirror,raise=5pt}] (9,-1.5) -- (9,1.5);
+            
+            % Text for Dense Layer
+            \node at (11, 0) {Camada densa};
+        
+            % Edges
+            \draw [->] (input1) -- (lstm);
+            \draw [->] (input2) -- (lstm);
+            \draw [->] (lstm) -- (output1);
+            \draw [->] (lstm) -- (output2);
+        
+            \end{tikzpicture}
+            \caption{Diagrama de uma Rede Neural Recorrente (RNN) com dois neurônios de entrada e dois neurônios de saída (camada densa) e uma camada LSTM modelada no código fornecido.}
+            \label{fig:rnn_diagram}
+        \end{figure}
+
         \item Treinamento do modelo: O modelo é treinado com os dados gerados, utilizando inicialmente 300 épocas.
         \begin{lstlisting}[language=Python]
 model.fit(x_train, y_train, epochs=300, verbose=0)
@@ -122,7 +158,6 @@ plt.legend()
 plt.show()
         \end{lstlisting}
     \end{enumerate}
-
     \item Treine a rede. Aprenda como fazer, e explique.
    
     \textbf{Resposta:} \par
