@@ -14,7 +14,7 @@ Este repositório contém as listas de exercícios da disciplina CPS769 - Introd
 ## Listas de Exercícios
 
 1. [Lista de Exercícios 1a](./lista_1a)
-   - **Assunto:** Previsão de padrões utilizando Redes Neurais Recorrentes (RNN) .
+   - **Assunto:** Previsão de padrões utilizando Redes Neurais Recorrentes (RNN) para auxiliar a discussão do artigo “SERIAL ORDER: A PARALLEL DISTRIBUTED PROCESSING APPROACH, Michael I. Jordan, May 1986”.
 
 
 ## Instruções
