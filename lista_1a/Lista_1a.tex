@@ -78,6 +78,51 @@ Esse exemplo simples é para auxiliar a discussão do artigo “Serial Order A P
     
     \textbf{Resposta:} \par
 
+    O código pode ser explicado dividindo-o em 6 partes:
+    \begin{enumerate}
+        \item Definição do caminho quadrado: O código define um conjunto de coordenadas que formam um caminho quadrado na variável \textit{square\_path}.
+        \begin{lstlisting}[language=Python]
+square_path = np.array([
+    [0.25, 0.25],
+    [0.75, 0.25],
+    [0.75, 0.75],
+    [0.25, 0.75],
+    [0.25, 0.25]
+])
+        \end{lstlisting}
+        \item Geração dos dados de treinamento: O caminho quadrado é repetido várias vezes para formar os dados de treinamento.
+        \begin{lstlisting}[language=Python]
+num_repeats = 4
+data = np.tile(square_path, (num_repeats, 1))
+x_train = data[:-1].reshape(-1, 1, 2)
+y_train = data[1:].reshape(-1, 2)
+        \end{lstlisting}
+        \item Definição e compilação do modelo RNN: O modelo RNN é definido usando uma camada LSTM (\textit{long short-term memory}) seguida de uma camada densa e depois é compilado configurando o algoritmo ADAM como otimizador e o Erro Médio Quadrático como função de perda.
+        \begin{lstlisting}[language=Python]
+model = models.Sequential([
+    layers.LSTM(50, activation='relu', input_shape=(num_repeats, 2)),
+    layers.Dense(2)
+])
+model.compile(optimizer='adam', loss='mse')            
+        \end{lstlisting}
+        \item Treinamento do modelo: O modelo é treinado com os dados gerados, utilizando inicialmente 300 épocas.
+        \begin{lstlisting}[language=Python]
+model.fit(x_train, y_train, epochs=300, verbose=0)
+        \end{lstlisting}
+        \item Geração das previsões: As previsões são geradas.
+        \begin{lstlisting}[language=Python]
+predictions = model.predict(x_train[:5])
+        \end{lstlisting}
+        \item  Plotagem dos resultados: As previsões são plotadas e comparadas com o caminho original.
+        \begin{lstlisting}[language=Python]
+plt.plot(data[:, 0], data[:, 1], label='Original Path', linestyle='dashed', color='gray')
+plt.plot(predictions[:, 0], predictions[:, 1], label='Predicted Path', color='blue')
+plt.scatter(square_path[:, 0], square_path[:, 1], color='red')
+plt.legend()
+plt.show()
+        \end{lstlisting}
+    \end{enumerate}
+
     \item Treine a rede. Aprenda como fazer, e explique.
    
     \textbf{Resposta:} \par
@@ -96,6 +141,6 @@ Esse exemplo simples é para auxiliar a discussão do artigo “Serial Order A P
 
 \end{enumerate}
 
-\lstinputlisting[language=Python,caption=código fornecido]{Lista_1a.py}
+\lstinputlisting[language=Python,caption=código fornecido completo]{Lista_1a.py}
 
 \end{document}

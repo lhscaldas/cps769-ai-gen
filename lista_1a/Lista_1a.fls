@@ -1,6 +1,6 @@
-PWD c:\Users\lhsca\OneDrive\Documentos\Estudos\Mestrado\Disciplinas\IA Generativa\Listas
+PWD c:\Users\lhsca\OneDrive\Documentos\Estudos\Mestrado\Disciplinas\IA Generativa\Listas\lista_1a
 INPUT C:\Users\lhsca\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\lhsca\OneDrive\Documentos\Estudos\Mestrado\Disciplinas\IA Generativa\Listas\Lista_1a.tex
+INPUT c:\Users\lhsca\OneDrive\Documentos\Estudos\Mestrado\Disciplinas\IA Generativa\Listas\lista_1a\Lista_1a.tex
 OUTPUT Lista_1a.log
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -160,13 +160,14 @@ INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\lhsca\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
+INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
+INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT .\Lista_1a.py
 INPUT .\Lista_1a.py
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
-INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
-INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT Lista_1a.py
-INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT Lista_1a.aux
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
@@ -180,5 +181,7 @@ INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
+INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
+INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
 INPUT C:\Users\lhsca\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb

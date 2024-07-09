@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1720527257.23512 "c:/Users/lhsca/OneDrive/Documentos/Estudos/Mestrado/Disciplinas/IA Generativa/Listas/Lista_1a.tex" "Lista_1a.pdf" "Lista_1a" 1720527258.35843 0
+["pdflatex"] 1720530648.84127 "c:/Users/lhsca/OneDrive/Documentos/Estudos/Mestrado/Disciplinas/IA Generativa/Listas/lista_1a/Lista_1a.tex" "Lista_1a.pdf" "Lista_1a" 1720530649.94666 0
   "C:/Users/lhsca/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1717947796 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/lhsca/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1715008148 24240394 0e129e212a862dc916b90ad8e0b2ede1 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -17,6 +17,7 @@
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr17.tfm" 1136765053 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr6.tfm" 1136765053 1300 b62933e007d01cfd073f79b963c01526 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
+  "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti12.tfm" 1136765053 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt10.tfm" 1136765053 768 1321e9409b4137d6fb428ac9dc956269 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt12.tfm" 1136765053 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136765053 520 4889cce2180234b97cad636b6039c722 ""
@@ -26,6 +27,7 @@
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
+  "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1247596667 36118 fad905eba93cff5bce1e185fe980a177 ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1713592802 146627 f7a4a651a7b2f00e9d4cc78db15bfe2a ""
@@ -83,10 +85,10 @@
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/tex/latex/ulem/ulem.sty" 1578651445 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
   "C:/Users/lhsca/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "COPPE UFRJ.png" 1715007025 119268 e8bfcfc0017d81dba38fe40f6f3d3998 ""
-  "Lista_1a.aux" 1720527258 259 b34060744bd218347de0957b44f25992 "pdflatex"
+  "Lista_1a.aux" 1720530649 268 a1716cc488be5c740f06fe5cbcb59184 "pdflatex"
   "Lista_1a.py" 1720524644 1350 63b7e7733fa6acc3ce5be78371d7e670 ""
-  "Lista_1a.tex" 1720527253 4205 fb78ca9b285398a89b5a1e8eb17a05f1 ""
-  "c:/Users/lhsca/OneDrive/Documentos/Estudos/Mestrado/Disciplinas/IA Generativa/Listas/Lista_1a.tex" 1720527253 4205 fb78ca9b285398a89b5a1e8eb17a05f1 ""
+  "Lista_1a.tex" 1720530645 6377 8474c6f9c049716ea05c509962a39e7e ""
+  "c:/Users/lhsca/OneDrive/Documentos/Estudos/Mestrado/Disciplinas/IA Generativa/Listas/lista_1a/Lista_1a.tex" 1720530645 6377 8474c6f9c049716ea05c509962a39e7e ""
   (generated)
   "Lista_1a.aux"
   "Lista_1a.log"
