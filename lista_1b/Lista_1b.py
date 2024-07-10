@@ -97,7 +97,7 @@ if __name__ == "__main__":
     end_time_relu = time.time()
     time_elapsed_relu = end_time_relu - start_time_relu
     print(f"Pesos finais (ReLU): {weights_relu}")
-    print(f"Tempo de execução (ReLU): {time_elapsed_relu:.5f} segundos")
+    print(f"Tempo de treinamento (ReLU): {time_elapsed_relu:.5f} segundos")
     
     # Training with Sigmoid
     perceptron_sigmoid = Perceptron(input_size=2, learning_rate=0.01, activation_function='sigmoid')
@@ -106,4 +106,4 @@ if __name__ == "__main__":
     end_time_sigmoid = time.time()
     time_elapsed_sigmoid = end_time_sigmoid - start_time_sigmoid
     print(f"Pesos finais (Sigmoid): {weights_sigmoid}")
-    print(f"Tempo de execução (Sigmoid): {time_elapsed_sigmoid:.5f} segundos")
+    print(f"Tempo de treinamento (Sigmoid): {time_elapsed_sigmoid:.5f} segundos")
