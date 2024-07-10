@@ -87,21 +87,52 @@ O objetivo deste trabalho é entender como um perceptron com duas entradas e uma
 Responda às seguintes perguntas com base no programa Python que você deverá fazer, e em suas observações:
 
 \begin{enumerate}
-    \item Explique o processo de geração de dados no programa. Como os pontos são classificados em duas classes?
-    \item Qual é o papel da função de ativação no perceptron? Compare as funções de ativação ReLU e Sigmoid.
-    \item Treine o perceptron com funções de ativação ReLU e Sigmoid. Mostre os pesos finais para ambos os casos.
-    \item Trace os limites de decisão para ambas as funções de ativação. Descreva quaisquer diferenças que você observar.
-    \item Como as funções de ativação ReLU e Sigmoid afetam a capacidade do perceptron de classificar os pontos?
-    \item Como o número de iterações para a aprendizagem afeta o desempenho do perceptron e o limite de decisão?
-    \item Quais são algumas limitações potenciais do uso de um perceptron de camada única para tarefas de classificação? Sugira possíveis melhorias.
-    \item Seria possível fazer o treinamento das lista anterior apenas aumentando o número de neurônios de 1 para N? Explique de acordo com os artigos que você leu.
+    \item Explique o processo de geração de dados no programa. Como os pontos são classificados em duas classes? \par
+
+    \textbf{Resposta:} \par
+
+    No programa, os dados de treinamento são gerados usando a classe DataGenerator (código no final deste relatório). Essa classe gera um conjunto de pontos aleatórios em um espaço 2D com coordenadas entre 0 e 1. Uma linha aleatória é gerada com uma inclinação (slope) e uma interceptação (intercept) aleatórias.
+
+    Cada ponto é então classificado com base na posição relativa à linha. Especificamente, os pontos que estão acima da linha (onde a coordenada y é maior que a soma da inclinação vezes a coordenada x mais a interceptação) são classificados como pertencentes à classe 1, enquanto os pontos abaixo da linha são classificados como pertencentes à classe 0. Isso resulta em um conjunto de dados com pontos claramente divididos em duas classes.
+    
+    \item Qual é o papel da função de ativação no perceptron? Compare as funções de ativação ReLU e Sigmoid.\par
+
+    \textbf{Resposta:} \par
+
+    A função de ativação no perceptron determina a saída do neurônio com base na soma ponderada de suas entradas. Ela introduz não-linearidade no modelo, permitindo que ele resolva problemas mais complexos.
+
+    Comparação entre ReLU e Sigmoid:
+
+    \begin{itemize}
+        \item ReLU (Rectified Linear Unit): Retorna a entrada diretamente se for positiva; caso contrário, retorna zero. É computacionalmente eficiente e ajuda a resolver o problema do desvanecimento do gradiente, comum em redes profundas.
+        \item Sigmoid: Retorna um valor entre 0 e 1, mapeando a soma ponderada de entradas para uma curva em forma de "S". É útil para problemas onde a saída precisa ser interpretada como uma probabilidade, mas pode sofrer com o desvanecimento do gradiente em redes profundas.
+    \end{itemize}
+    
+    \item Treine o perceptron com funções de ativação ReLU e Sigmoid. Mostre os pesos finais para ambos os casos.\par
+
+    \textbf{Resposta:} \par
+    \item Trace os limites de decisão para ambas as funções de ativação. Descreva quaisquer diferenças que você observar.\par
+
+    \textbf{Resposta:} \par
+    \item Como as funções de ativação ReLU e Sigmoid afetam a capacidade do perceptron de classificar os pontos?\par
+
+    \textbf{Resposta:} \par
+    \item Como o número de iterações para a aprendizagem afeta o desempenho do perceptron e o limite de decisão?\par
+
+    \textbf{Resposta:} \par
+    \item Quais são algumas limitações potenciais do uso de um perceptron de camada única para tarefas de classificação? Sugira possíveis melhorias.\par
+
+    \textbf{Resposta:} \par
+    \item Seria possível fazer o treinamento das lista anterior apenas aumentando o número de neurônios de 1 para N? Explique de acordo com os artigos que você leu.\par
+
+    \textbf{Resposta:} \par
 \end{enumerate}
 
 
 
 \section*{Código}
 
-O código abaixo encontra-se no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}, bem como o arquivo LaTex com o relatório.
+Os códigos abaixo encontram-se no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}, bem como o arquivo LaTex com o relatório.
 
 
 % \lstinputlisting[language=Python,caption=código fornecido completo com algumas modificações]{Lista_1a.py}
