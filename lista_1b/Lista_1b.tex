@@ -94,6 +94,14 @@ Responda às seguintes perguntas com base no programa Python que você deverá f
     No programa, os dados de treinamento são gerados usando a classe DataGenerator (código no final deste relatório). Essa classe gera um conjunto de pontos aleatórios em um espaço 2D com coordenadas entre 0 e 1. Uma linha aleatória é gerada com uma inclinação (slope) e uma interceptação (intercept) aleatórias.
 
     Cada ponto é então classificado com base na posição relativa à linha. Especificamente, os pontos que estão acima da linha (onde a coordenada y é maior que a soma da inclinação vezes a coordenada x mais a interceptação) são classificados como pertencentes à classe 1, enquanto os pontos abaixo da linha são classificados como pertencentes à classe 0. Isso resulta em um conjunto de dados com pontos claramente divididos em duas classes.
+
+    O \textit{random seed} foi travado em 43 para garantir a repetibilidade do experimento (mesmo conjunto de dados a cada execução). O conjunto de dados utilizado pode ser visualizado na figura abaixo.
+
+    \begin{figure}[H]
+        \caption{Conjunto de dados utilizado}
+           \centering
+           \includegraphics[height=8cm]{fig/Figure_1.png}
+    \end{figure}
     
     \item Qual é o papel da função de ativação no perceptron? Compare as funções de ativação ReLU e Sigmoid.\par
 
@@ -104,13 +112,30 @@ Responda às seguintes perguntas com base no programa Python que você deverá f
     Comparação entre ReLU e Sigmoid:
 
     \begin{itemize}
-        \item ReLU (Rectified Linear Unit): Retorna a entrada diretamente se for positiva; caso contrário, retorna zero. É computacionalmente eficiente e ajuda a resolver o problema do desvanecimento do gradiente, comum em redes profundas.
         \item Sigmoid: Retorna um valor entre 0 e 1, mapeando a soma ponderada de entradas para uma curva em forma de "S". É útil para problemas onde a saída precisa ser interpretada como uma probabilidade, mas pode sofrer com o desvanecimento do gradiente em redes profundas.
+        \item ReLU (Rectified Linear Unit): Retorna a entrada diretamente se for positiva; caso contrário, retorna zero. É computacionalmente eficiente e ajuda a resolver o problema do desvanecimento do gradiente, comum em redes profundas.
     \end{itemize}
     
     \item Treine o perceptron com funções de ativação ReLU e Sigmoid. Mostre os pesos finais para ambos os casos.\par
 
     \textbf{Resposta:} \par
+    
+    O treinamento do perceptron é feito utilizando o método train da classe Perceptron (código no final deste relatório). Durante o treinamento, para cada época, o algoritmo percorre todos os pontos de dados de treinamento, calcula a soma ponderada das entradas (incluindo um termo de bias), aplica a função de ativação (ReLU ou Sigmoid) para obter a previsão, e então calcula o erro como a diferença entre o rótulo real e a previsão. Utilizando a derivada da função de ativação, os pesos são ajustados de acordo com a taxa de aprendizado para minimizar o erro. Este processo é repetido por um número especificado de épocas até que os pesos sejam suficientemente ajustados para classificar os pontos de dados corretamente.
+
+    \begin{table}[h!]
+        \centering
+        \caption{Pesos finais do perceptron para as funções de ativação ReLU e Sigmoid, exibidos com 5 casas decimais.}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{Função de Ativação} & \textbf{Peso} $w_0$ & \textbf{Peso} $w_1$ & \textbf{Peso} $w_2$ \\ \hline
+            ReLU                        & 0.79833             & 1.49001             & -0.75895            \\ \hline
+            Sigmoid                     & 4.52860             & 7.80608             & -6.28154            \\ \hline
+        \end{tabular}
+        \vspace{0.3cm}
+        \caption*{Observação: Tempo de execução (ReLU): 3.84350 segundos. Tempo de execução (Sigmoid): 2.14966 segundos.}
+        \label{tab:pesos_finais}
+    \end{table}
+    
     \item Trace os limites de decisão para ambas as funções de ativação. Descreva quaisquer diferenças que você observar.\par
 
     \textbf{Resposta:} \par
@@ -132,9 +157,9 @@ Responda às seguintes perguntas com base no programa Python que você deverá f
 
 \section*{Código}
 
-Os códigos abaixo encontram-se no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}, bem como o arquivo LaTex com o relatório.
+O código abaixo encontra-se no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}, bem como o arquivo LaTex com o relatório e os códigos e arquivos LaTex das outras listas desta disciplina.
 
 
-% \lstinputlisting[language=Python,caption=código fornecido completo com algumas modificações]{Lista_1a.py}
+\lstinputlisting[language=Python,caption=código completo utilizado]{Lista_1b.py}
 
 \end{document}
