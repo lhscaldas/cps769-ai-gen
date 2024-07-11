@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
+# Classe implementada para gerar o dataset
 class DataGenerator:
     def __init__(self, num_points=100, seed=None):
         self.num_points = num_points
@@ -29,19 +30,17 @@ class DataGenerator:
 
     def plot_data(self):
         plt.figure(figsize=(8, 6))
-        plt.scatter(self.data[self.labels == 1][:, 0], self.data[self.labels == 1][:, 1], color='blue', label='Classe 1')
-        plt.scatter(self.data[self.labels == 0][:, 0], self.data[self.labels == 0][:, 1], color='red', label='Classe 0')
-        
+        scatter = plt.scatter(self.data[:, 0], self.data[:, 1], c=self.labels, edgecolors='k', marker='o', cmap=plt.cm.coolwarm)
         x_vals = np.array([0, 1])
         y_vals = self.slope * x_vals + self.intercept
         plt.plot(x_vals, y_vals, color='black', linestyle='--', label='Função Geradora')
-        
-        plt.xlabel('X')
-        plt.ylabel('Y')
+        plt.xlabel('$x_1$')
+        plt.ylabel('$x_2$')
         plt.title('Conjunto de Dados')
-        plt.legend()
+        plt.legend(handles=scatter.legend_elements()[0] + [plt.Line2D([], [], color='black', linestyle='--')], labels=['Classe 0', 'Classe 1', 'Função Geradora'])
         plt.show()
 
+# Classe implementada para criar e treinar o Perceptron e fazer classificações com ele
 class Perceptron:
     def __init__(self, input_size, learning_rate=0.01, activation_function='sigmoid'):
         if activation_function == 'relu':
@@ -80,8 +79,25 @@ class Perceptron:
                 update = self.learning_rate * error * derivative * inputs_with_bias
                 self.weights += update
         return self.weights
+    
+    def plot_decision_boundary(self, training_data, labels):
+        plt.figure(figsize=(8, 6))
+        # Plot data points
+        scatter = plt.scatter(training_data[:, 0], training_data[:, 1], c=labels, edgecolors='k', marker='o', cmap=plt.cm.coolwarm)
+        
+        # Calculate the decision boundary
+        x_vals = np.array([0, 1])
+        y_vals = -(self.weights[0] * x_vals + self.weights[2]) / self.weights[1]
+        
+        # Plot the decision boundary
+        plt.plot(x_vals, y_vals, color='black', linestyle='--', label='Limite de Decisão')
+        
+        plt.xlabel('$x_1$')
+        plt.ylabel('$x_2$')
+        plt.title(f"Limite de Decisão ({self.activation_function})")
+        plt.legend(handles=scatter.legend_elements()[0] + [plt.Line2D([], [], color='black', linestyle='--')], labels=['Classe 0', 'Classe 1', 'Limite de Decisão'])
+        plt.show()
 
-# Example usage
 if __name__ == "__main__":
     data_gen = DataGenerator(num_points=200, seed=43)
     training_data, labels = data_gen.get_data_and_labels()
@@ -98,6 +114,7 @@ if __name__ == "__main__":
     time_elapsed_relu = end_time_relu - start_time_relu
     print(f"Pesos finais (ReLU): {weights_relu}")
     print(f"Tempo de treinamento (ReLU): {time_elapsed_relu:.5f} segundos")
+    perceptron_relu.plot_decision_boundary(training_data, labels)
     
     # Training with Sigmoid
     perceptron_sigmoid = Perceptron(input_size=2, learning_rate=0.01, activation_function='sigmoid')
@@ -107,3 +124,4 @@ if __name__ == "__main__":
     time_elapsed_sigmoid = end_time_sigmoid - start_time_sigmoid
     print(f"Pesos finais (Sigmoid): {weights_sigmoid}")
     print(f"Tempo de treinamento (Sigmoid): {time_elapsed_sigmoid:.5f} segundos")
+    perceptron_sigmoid.plot_decision_boundary(training_data, labels)

@@ -100,7 +100,7 @@ Responda às seguintes perguntas com base no programa Python que você deverá f
     \begin{figure}[H]
         \caption{Conjunto de dados utilizado}
            \centering
-           \includegraphics[height=8cm]{fig/Figure_1.png}
+           \includegraphics[height=8cm]{fig/dataset.png}
     \end{figure}
     
     \item Qual é o papel da função de ativação no perceptron? Compare as funções de ativação ReLU e Sigmoid.\par
@@ -122,7 +122,9 @@ Responda às seguintes perguntas com base no programa Python que você deverá f
     
     O treinamento do perceptron é feito utilizando o método train da classe Perceptron (código no final deste relatório). Durante o treinamento, para cada época, o algoritmo percorre todos os pontos de dados de treinamento, calcula a soma ponderada das entradas (incluindo um termo de bias), aplica a função de ativação (ReLU ou Sigmoid) para obter a previsão, e então calcula o erro como a diferença entre o rótulo real e a previsão. Utilizando a derivada da função de ativação, os pesos são ajustados de acordo com a taxa de aprendizado para minimizar o erro. Este processo é repetido por um número especificado de épocas até que os pesos sejam suficientemente ajustados para classificar os pontos de dados corretamente.
 
-    \begin{table}[h!]
+    A tabela abaixo apresenta os resultados para o treinamento do perceptron utilizando 1000 épocas para as duas funções de ativação.
+
+    \begin{table}[H]
         \centering
         \caption{Pesos finais do perceptron para as funções de ativação ReLU e Sigmoid.}
         \begin{tabular}{|c|c|c|c|}
@@ -132,25 +134,64 @@ Responda às seguintes perguntas com base no programa Python que você deverá f
             Sigmoid                     & 4.52860             & 7.80608             & -6.28154            \\ \hline
         \end{tabular}
         \vspace{0.3cm}
-        \caption*{Observação: Tempo de treinamento (ReLU): 3.84350 segundos. Tempo de treinamento (Sigmoid): 2.14966 segundos.}
+        \caption*{Observação: Tempo de treinamento (ReLU): 2.60896 segundos. Tempo de treinamento (Sigmoid): 1.80149 segundos.}
         \label{tab:pesos_finais}
     \end{table}
     
     \item Trace os limites de decisão para ambas as funções de ativação. Descreva quaisquer diferenças que você observar.\par
 
     \textbf{Resposta:} \par
+
+    Para traçar os limites de decisão, plotamos a reta formada pelos pesos do perceptron. O resultado é exibido nas duas figuras abaixo.
+
+    \begin{figure}[H]
+        \centering
+        \caption{Limites de decisão para diferentes funções de ativação}
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=1.2\textwidth]{fig/boundary_relu.png}
+            \caption{Limite de decisão para a função de ativação ReLU}
+            \label{fig:boundary_relu}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \includegraphics[width=1.2\textwidth]{fig/boundary_sigmoid.png}
+            \caption{Limite de decisão para a função de ativação Sigmoid}
+            \label{fig:boundary_sigmoid}
+        \end{subfigure}
+        \label{fig:decision_boundaries}
+    \end{figure}
+
+    Para os 200 pontos do conjunto de dados utilizado nesse experimento, a função de ativação ReLU apresentou um erro considerável (muitos pontos azuis acima do limite de decisão). Já a função de ativação Sigmoid pararece errar apenas um ponto (ponto vermelho abaixo do limite de decisão). 
+
     \item Como as funções de ativação ReLU e Sigmoid afetam a capacidade do perceptron de classificar os pontos?\par
 
     \textbf{Resposta:} \par
+
+    A função de ativação ReLU permite que o perceptron aprenda de forma mais rápida e eficaz, especialmente em problemas com muitas entradas. No entanto, pode introduzir uma linearidade que nem sempre é ideal para todos os problemas. A Sigmoid, por outro lado, suaviza a saída, tornando-a mais adequada para problemas onde as classes se sobrepõem, mas pode sofrer com o desvanecimento do gradiente em redes profundas.
+
+    Além disso, como observado no item anterior, a função de ativação ReLU leva o perceptron a um erro de treinamento muito maior que o da função de ativação Sigmoid.
+
     \item Como o número de iterações para a aprendizagem afeta o desempenho do perceptron e o limite de decisão?\par
 
     \textbf{Resposta:} \par
+
+    Aumentar o número de iterações geralmente melhora o desempenho do perceptron, permitindo que ele ajuste os pesos mais precisamente e aprenda melhor os padrões nos dados de treinamento. No entanto, após um certo ponto, pode haver retornos decrescentes, e o perceptron pode começar a superajustar aos dados de treinamento, prejudicando a generalização.
+
+
     \item Quais são algumas limitações potenciais do uso de um perceptron de camada única para tarefas de classificação? Sugira possíveis melhorias.\par
 
     \textbf{Resposta:} \par
+
+    Um perceptron de camada única só pode resolver problemas linearmente separáveis. Não pode lidar com problemas não linearmente separáveis, como o XOR. Possíveis melhorias incluem o uso de múltiplas camadas (redes neurais profundas), diferentes funções de ativação, regularização, e técnicas avançadas de otimização, como gradient descent com momentum ou Adam.
+
+
     \item Seria possível fazer o treinamento das lista anterior apenas aumentando o número de neurônios de 1 para N? Explique de acordo com os artigos que você leu.\par
 
     \textbf{Resposta:} \par
+
+    Aumentar o número de neurônios em uma rede neural simples pode melhorar a capacidade de representar os dados, mas não resolve os problemas fundamentais de aprendizado de padrões temporais e complexos. De acordo com os trabalhos de Jordan (1986) e Elman (1990), é necessário considerar a estrutura da rede, a inclusão de unidades de contexto ou estado, e técnicas avançadas de treinamento para lidar eficazmente com dados sequenciais e complexos. Portanto, para o treinamento da lista anterior, simplesmente aumentar o número de neurônios não seria suficiente; é preciso também adaptar a arquitetura da rede para capturar a dinâmica temporal e a estrutura dos dados.
 \end{enumerate}
 
 
