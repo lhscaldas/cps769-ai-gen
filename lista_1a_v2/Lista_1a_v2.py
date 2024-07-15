@@ -130,10 +130,10 @@ def espiral():
 
 if __name__ == "__main__":
     # Seleção de hiperparâmetros
-    # selecao(epochs=100, num_repeat=40)
+    selecao(epochs=100, num_repeat=40)
 
     # Quadrado
-    # quadrado()
+    quadrado()
 
     # Espiral quadrada
     espiral()
