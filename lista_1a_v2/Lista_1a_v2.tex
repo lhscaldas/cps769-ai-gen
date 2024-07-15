@@ -159,6 +159,9 @@ plt.legend()
 plt.show()
         \end{lstlisting}
     \end{enumerate}
+
+    Este código foi levemente alterado por mim, criando-se a classe \textit{PathPredictor} e fazendo as alterações necessárias para responder os próximos itens. 
+
     \item Treine a rede. Aprenda como fazer, e explique.
    
     \textbf{Resposta:} \par
@@ -170,7 +173,7 @@ plt.show()
    
     \textbf{Resposta:} \par
 
-    Foi feita a previsão para o ponto inicial original do código dado, $(x_1=0.25$ e $x_2=0.25)$ e depois foram testados os outros vértices do quadrado. Para isso foi implementada a função \textit{plot\_predictions\_with\_varied\_initial\_points} (código no final do relatório), na qual os pontos são previstos em sequência, sendo a previsão anterior a entrada da próxima previsão, somando um total de 4 previsões para cada ponto inicial. O resultado pode ser observado na figura abaixo.
+    Foi feita a previsão para o ponto inicial original do código dado, $(x_1=0.25$ e $x_2=0.25)$ e depois foram testados os outros vértices do quadrado. Os pontos são previstos em sequência, sendo a previsão anterior a entrada da próxima previsão, somando um total de 4 previsões para cada ponto inicial. O resultado pode ser observado na figura abaixo.
 
     \begin{figure}[H]
         \caption{Previsão para diferentes pontos iniciais}
@@ -178,7 +181,7 @@ plt.show()
            \includegraphics[height=8cm]{fig/Item_3.png}
     \end{figure}
     
-    Todas as previsões divergem do caminho original no ponto $(x_1=0.50$ e $x_2=0.25)$, o que indica uma provavél incompatibilidade do modelo para prever esse caminho, uma vez que foram testadas diversas variações de número de épocas e de repetições do caminho original no treinamento.
+    Todas as previsões divergem do caminho original no ponto $(x_1=0.50$ e $x_2=0.25)$, o que indica uma provável incompatibilidade do modelo para prever esse caminho, uma vez que foram testadas diversas variações de número de épocas e de repetições do caminho original no treinamento.
 
     \item Modifique a RNN usada e observe o que acontece.
 
@@ -240,8 +243,6 @@ plt.show()
            \includegraphics[height=8cm]{fig/Item_4_40_900.png}
     \end{figure}
     
-    Pelas figuras foi possível observar que o impacto do aumento do número de repetições na precisão da previsão foi muito maior que o impacto do aumento do número de épocas, o que demonstra a importância do tamanho do dataset de treinamento para o resultado de suas previsões.
-
     \item Quais os pontos principais que você concluiu do artigo “Serial Order A Parallel Distributed Processing Approach”?
         
     \textbf{Resposta:} \par
@@ -260,7 +261,13 @@ plt.show()
         
     \textbf{Resposta:} \par
 
-    Para gerar o caminho em espiral foi implementada a função \textit{generate\_spiral\_square} (código no final do relatório), a qual gera uma lista no mesmo formato da \textit{square\_path} fornecida, porém com os pontos formando uma espiral quadrada. O resultado da previsão pode ser observado na figura abaixo.
+    Para gerar o caminho em espiral foi implementado o método \textit{generate\_spiral\_square} (código no final do relatório), o qual gera uma lista no mesmo formato da \textit{square\_path} fornecida, porém com os pontos formando uma espiral quadrada. O resultado da previsão pode ser observado na figura abaixo.
+
+    \begin{figure}[H]
+        \caption{Previsão do caminho espiral}
+           \centering
+           \includegraphics[height=8cm]{fig/Item_7.png}
+    \end{figure}
 
 \end{enumerate}
 
