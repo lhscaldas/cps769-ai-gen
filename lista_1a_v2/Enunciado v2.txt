@@ -1,0 +1,2 @@
+- qual a differença do RNN usado no código em relação ao artigo 01?
+- inclua, nos dados de treino uma figura de uma espiral quadrada, e experimente o que a rede aprendeu
