@@ -91,10 +91,30 @@ Sobre a Rede Neural e programa:
     \item No seu programa:
     \begin{itemize}
         \item Use um Scaler padrão do sklearn para dimensionar os dados de treinamento. Explique o motivo de escalonar os dados de entrada.
+        
+        \textbf{Resposta:} \par
+
+        Escalonar os dados de entrada normaliza suas distribuições, permitindo uma convergência mais rápida e estável do modelo de machine learning.
+
         \item Para a camada oculta, use a função de ativação ReLU (Rectified Linear Unit).
         \item A camada de saída usa a ativação linear padrão (explique o que é).
+        
+        \textbf{Resposta:} \par
+
+        A ativação linear padrão retorna a entrada sem modificações ($f(x)=x$), usada em problemas de regressão para prever valores contínuos.
+
         \item Use o algoritmo de otimização Adam (Adaptive Moment Estimation). Explique bem resumidamente as vantagens em relação ao Stochastic Gradient Descent padrão.
+        
+        \textbf{Resposta:} \par
+
+        Adam ajusta a taxa de aprendizagem para cada parâmetro individualmente e utiliza momentos dos gradientes, permitindo convergência mais rápida e estável.
+
         \item Use mean square error para a função de perda. Explique bem resumidamente o objetivo da função de perda.
+          
+        \textbf{Resposta:} \par
+
+        A função de perda mede a diferença entre as previsões do modelo e os valores reais. Durante o aprendizado, o ajuste dos pesos é feito de forma a minimizar o valor da função de perda, melhorando a acurácia do modelo.
+
     \end{itemize}
 \end{itemize}
 
@@ -102,14 +122,59 @@ Responda:
 
 \begin{enumerate}
     \item Como o modelo de rede neural está estruturado? Explique a arquitetura.
+    
+    \textbf{Resposta:} \par
+
+    O modelo possui duas entradas (as duas features), uma camada oculta com 3 neurônios usando a função de ativação ReLU, e uma camada de saída com um neurônio e ativação linear.
+
     \item Explique o papel da função de ativação usada na camada oculta.
+   
+    \textbf{Resposta:} \par
+
+    A função ReLU (Rectified Linear Unit) ajuda a introduzir não-linearidade ao modelo, permitindo que ele aprenda relações complexas entre as entradas e as saídas.
+
     \item Treine o modelo com o conjunto de dados fornecido. Qual o erro quadrático médio nos dados de teste?
+       
+    \textbf{Resposta:} \par
+
+    *Exibir valor final*
+
     \item Trace o erro quadrático médio em função das “épocas” (dos passos para a convergência). Descreva a tendência que você observa.
+       
+    \textbf{Resposta:} \par
+
+    *Exibir gráfico final*
+
     \item Mostre os pesos e bias de cada camada após o treinamento, isto é, mostre os parâmetros aprendidos do modelo.
+       
+    \textbf{Resposta:} \par
+
+    *tabela com os pesos*
+
     \item Use o modelo treinado para prever as notas a partir dos dados de novos alunos (com um segundo dataset fornecido sem as notas). Mostre as previsões feitas pelo modelo e explique os resultados.
+       
+    \textbf{Resposta:} \par
+
+    *tabela com as previsões*
+
     \item Modifique o programa para adicionar mais camadas e/ou maior número de neurônios ocultos. Como suas modificações afetam o desempenho do modelo?
+    
+       
+    \textbf{Resposta:} \par
+
     \item Quais seriam algumas melhorias potenciais ou recursos adicionais que poderiam ser adicionados ao modelo para melhorar sua precisão preditiva?
+    
+       
+    \textbf{Resposta:} \par
+
+    Para melhorar a precisão preditiva, poderia-se adicionar regularização (como Dropout), usar técnicas de aumento de dados, ou experimentar diferentes arquiteturas de rede.
+
     \item Faria sentido usar a função de ativação sigmoid no modelo? Explique em poucas palavras.
+       
+    \textbf{Resposta:} \par
+
+    A função sigmoid é mais adequada para tarefas de classificação binária. Para problemas de regressão, como o apresentado, a ativação linear na saída é mais apropriada.
+
 \end{enumerate}
 
 \section*{Código}
