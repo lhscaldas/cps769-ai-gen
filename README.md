@@ -19,8 +19,11 @@ Este repositório contém as listas de exercícios da disciplina CPS769 - Introd
 2. [Lista de Exercícios 1b](./lista_1b)
    - **Assunto:** Classificação de pontos em um espaço 2-D por um perceptron utilizando funções de ativação ReLU e Sigmoid. 
 
-1. [Lista de Exercícios 1a: segunda chance](./lista_1a_v2)
+3. [Lista de Exercícios 1a: segunda chance](./lista_1a_v2)
    - **Assunto:** Lista de Exercícios 1a com algumas modificações e mais dois itens para responder.
+
+4. [Lista de Exercícios 2](./lista_2)
+   - **Assunto:** Implementação de um modelo de rede neural simples para prever a nota de cada aluno.
 
 
 ## Instruções
@@ -33,6 +36,8 @@ Cada pasta contém os arquivos relacionados à respectiva lista de exercícios (
 - TensorFlow
 - NumPy
 - Matplotlib
+- Pandas
+- Scikit-Learn
 
 ## Como usar
 

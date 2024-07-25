@@ -1,0 +1,122 @@
+\documentclass[12 pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{matlab-prettifier}
+\usepackage[portuguese]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[font=small,labelfont=bf]{caption}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{myyellow}{rgb}{1.0, 1.0, 0.8}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage[normalem]{ulem}               % to striketrhourhg text
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\newcommand\redout{\bgroup\markoverwith
+{\textcolor{red}{\rule[0.5ex]{2pt}{0.8pt}}}\ULon}
+\renewcommand{\lstlistingname}{Código}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
+
+\usepackage[top=3cm,left=2cm,bottom=2cm, right=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+% Configuração para destacar a sintaxe do Python
+\lstset{ 
+    language=Python,                     % A linguagem do código
+    backgroundcolor=\color{myyellow}, % A cor do fundo 
+    basicstyle=\ttfamily\footnotesize,   % O estilo do texto básico
+    keywordstyle=\color{blue},           % Cor das palavras-chave
+    stringstyle=\color{red},             % Cor das strings
+    commentstyle=\color{mygreen},          % Cor dos comentários
+    numbers=left,                        % Números das linhas à esquerda
+    numberstyle=\tiny\color{gray},       % Estilo dos números das linhas
+    stepnumber=1,                        % Número de linhas entre os números das linhas
+    frame=single,                        % Moldura ao redor do código
+    breaklines=true,                     % Quebra automática das linhas longas
+    captionpos=t,                        % Posição da legenda
+    showstringspaces=false               % Não mostra espaços em branco nas strings
+    extendedchars=true,
+    literate={º}{{${ }^{\underline{o}}$}}1 {á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {É}{{\'E}}1 {ê}{{\^e}}1 {ë}{{\"e}}1 {í}{{\'i}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~o}}1 {ó}{{\'o}}1 {ô}{{\^o}}1 {ú}{{\'u}}1 {â}{{\^a}}1 {~}{{$\sim$}}1
+}
+
+
+\title{%
+\textbf{\huge Universidade Federal do Rio de Janeiro} \par
+\textbf{\LARGE Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia} \par
+\includegraphics[width=8cm]{COPPE UFRJ.png} \par
+\textbf{Programa de Engenharia de Sistemas e Computação} \par
+\large
+CPS769 - Introdução à Inteligência Artificial e Aprendizagem Generativa \newline \par
+\small
+Prof. Dr. Edmundo de Souza e Silva (PESC/COPPE/UFRJ)\par 
+Profa. Dra. Rosa M. Leão (PESC/COPPE/UFRJ)\par 
+Participação Especial: Gaspare Bruno (Diretor Inovação, ANLIX) \par
+
+\vspace{1\baselineskip}
+\Large
+\textbf{\textit{Lista de Exercícios 2
+}}
+}
+
+\author{Luiz Henrique Souza Caldas\\email: lhscaldas@cos.ufrj.br}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Questão 1}
+
+O objetivo deste trabalho é entender como construir um modelo preditivo simples (de Redes Neurais) usando uma ou mais camadas ocultas, e se familiarizar com os códigos em Python. Nesta tarefa, você deverá construir um modelo de rede neural simples para prever a nota de cada aluno em uma turma com base em duas features:
+
+\begin{itemize}
+    \item Fração de palestras assistidas
+    \item Número de horas estudadas por semana (até o máximo de 8 horas em uma semana).
+\end{itemize}
+
+Sobre a Rede Neural e programa:
+
+\begin{itemize}
+    \item A sua rede neural deverá ter uma camada oculta com 3 neurônios. Portanto teremos 2 entradas (as 2 features), uma camada oculta e, na camada de saída, um neurônio.
+    \item Os dados de entrada são fornecidos em uma planilha .ods (libreoffice), com os dados de 500 estudantes.
+    \item Uma vez lido, o seu dataset deve ser aleatoriamente dividido de forma a que 80\% seja para treino do modelo e os restantes 20\% para teste.
+    \item No seu programa:
+    \begin{itemize}
+        \item Use um Scaler padrão do sklearn para dimensionar os dados de treinamento. Explique o motivo de escalonar os dados de entrada.
+        \item Para a camada oculta, use a função de ativação ReLU (Rectified Linear Unit).
+        \item A camada de saída usa a ativação linear padrão (explique o que é).
+        \item Use o algoritmo de otimização Adam (Adaptive Moment Estimation). Explique bem resumidamente as vantagens em relação ao Stochastic Gradient Descent padrão.
+        \item Use mean square error para a função de perda. Explique bem resumidamente o objetivo da função de perda.
+    \end{itemize}
+\end{itemize}
+
+Responda:
+
+\begin{enumerate}
+    \item Como o modelo de rede neural está estruturado? Explique a arquitetura.
+    \item Explique o papel da função de ativação usada na camada oculta.
+    \item Treine o modelo com o conjunto de dados fornecido. Qual o erro quadrático médio nos dados de teste?
+    \item Trace o erro quadrático médio em função das “épocas” (dos passos para a convergência). Descreva a tendência que você observa.
+    \item Mostre os pesos e bias de cada camada após o treinamento, isto é, mostre os parâmetros aprendidos do modelo.
+    \item Use o modelo treinado para prever as notas a partir dos dados de novos alunos (com um segundo dataset fornecido sem as notas). Mostre as previsões feitas pelo modelo e explique os resultados.
+    \item Modifique o programa para adicionar mais camadas e/ou maior número de neurônios ocultos. Como suas modificações afetam o desempenho do modelo?
+    \item Quais seriam algumas melhorias potenciais ou recursos adicionais que poderiam ser adicionados ao modelo para melhorar sua precisão preditiva?
+    \item Faria sentido usar a função de ativação sigmoid no modelo? Explique em poucas palavras.
+\end{enumerate}
+
+\section*{Código}
+
+O código abaixo encontra-se no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}, bem como o arquivo LaTex com o relatório.
+
+
+\lstinputlisting[language=Python,caption=código fornecido completo com algumas modificações]{Lista_2.py}
+
+\end{document}
