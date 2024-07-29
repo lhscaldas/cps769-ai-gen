@@ -25,7 +25,7 @@ Este repositório contém as listas de exercícios da disciplina CPS769 - Introd
 4. [Lista de Exercícios 2](./lista_2)
    - **Assunto:** Implementação de um modelo de rede neural simples para prever a nota de cada aluno.
 
-5. [LangChain: introdução](./exemplo_LangChain)
+5. [LangChain: introdução](./exemplo_LangChain/tutorial.ipynb)
    - **Assunto:** Execução do tutorial [LangChain Introduction](https://python.langchain.com/v0.2/docs/introduction/) para familiarização com o uso deste framework.
 
 ## Instruções
