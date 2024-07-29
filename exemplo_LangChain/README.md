@@ -10,7 +10,7 @@ Para mais detalhes, acesse [LangChain Introduction](https://python.langchain.com
 
 ## Objetivo
 
-O objetivo desta atividade é se se familiarizar com LangChain, seguindo o tutorial [How to return structured data from a model](https://python.langchain.com/v0.2/docs/how_to/structured_output/).
+O objetivo desta atividade é se familiarizar com LangChain, seguindo o tutorial [How to return structured data from a model](https://python.langchain.com/v0.2/docs/how_to/structured_output/).
 
 O tutorial ensina como retornar dados estruturados de um modelo utilizando o método `.with_structured_output()` em LangChain. Este método facilita a obtenção de saídas que correspondem a um esquema específico, útil para inserir dados em bancos de dados ou sistemas downstream. O tutorial explica como definir esquemas usando JSON Schema ou classes Pydantic, e como implementar exemplos práticos, como separar a introdução e o desfecho de uma piada.
 
