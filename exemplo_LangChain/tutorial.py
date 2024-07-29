@@ -3,11 +3,15 @@ import getpass
 import os
 from env import OPENAI_API_KEY # key armazenada em um arquivo que está no .gitignore para manter o sigilo
 
-os.environ[OPENAI_API_KEY] = getpass.getpass()
+# os.environ['OPENAI_API_KEY'] = getpass.getpass()
 
 from langchain_openai import ChatOpenAI
 
-llm = ChatOpenAI(model="gpt-4o-mini")
+llm = ChatOpenAI(model="gpt-4o-mini",
+    openai_api_key=OPENAI_API_KEY,
+    max_tokens=200,
+    temperature=1,
+)
 
 from typing import Optional
 
@@ -23,4 +27,4 @@ class Joke(BaseModel):
 
 structured_llm = llm.with_structured_output(Joke)
 
-structured_llm.invoke("Tell me a joke about cats")
+print(structured_llm.invoke("Tell me a joke about cats"))
