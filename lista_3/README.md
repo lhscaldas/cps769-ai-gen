@@ -28,4 +28,4 @@ Base de dados: [Kaggle - Brazil Weather Information by INMET](https://www.kaggle
 
 Aprenda a trabalhar com os dados em Python. A base de dados é apresentada em CSV, onde cada linha representa um dia e uma hora. A base possui outras informações, além da temperatura. Para trabalhar de maneira prática com um arquivo CSV em Python, podemos utilizar o pandasql.
 
-A solução encontra-se neste [Notebook Jupyter](./lista_3/lista_3.ipynb)
+A solução e o código encontram-se neste [Notebook Jupyter](./lista_3.ipynb)
