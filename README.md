@@ -28,7 +28,7 @@ Este repositório contém as listas de exercícios da disciplina CPS769 - Introd
 5. [LangChain: introdução](./exemplo_LangChain)
    - **Assunto:** Execução do tutorial [LangChain Introduction](https://python.langchain.com/v0.2/docs/introduction/) para familiarização com o uso deste framework.
 
-5. [Aplicação de LLMs para chamada a outras ferramentas](./lista_3)
+5. [Lista de Exercícios 3](./lista_3)
    - **Assunto:** Aplicação de LLM com a API da OpenAI para interpretar e responder perguntas sobre dados meteorológicos, utilizando técnicas de chamada de função em Python e análise de dados com PandasSQL.
 
 
