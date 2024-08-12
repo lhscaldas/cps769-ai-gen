@@ -1,0 +1,136 @@
+\documentclass[12 pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{matlab-prettifier}
+\usepackage[portuguese]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[font=small,labelfont=bf]{caption}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{myyellow}{rgb}{1.0, 1.0, 0.8}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage[normalem]{ulem}               % to striketrhourhg text
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\newcommand\redout{\bgroup\markoverwith
+{\textcolor{red}{\rule[0.5ex]{2pt}{0.8pt}}}\ULon}
+\renewcommand{\lstlistingname}{Código}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> List of Algorithms
+
+\usepackage[top=3cm,left=2cm,bottom=2cm, right=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
+
+% Configuração para destacar a sintaxe do Python
+\lstset{ 
+    language=Python,                     % A linguagem do código
+    backgroundcolor=\color{myyellow}, % A cor do fundo 
+    basicstyle=\ttfamily\footnotesize,   % O estilo do texto básico
+    keywordstyle=\color{blue},           % Cor das palavras-chave
+    stringstyle=\color{red},             % Cor das strings
+    commentstyle=\color{mygreen},          % Cor dos comentários
+    numbers=left,                        % Números das linhas à esquerda
+    numberstyle=\tiny\color{gray},       % Estilo dos números das linhas
+    stepnumber=1,                        % Número de linhas entre os números das linhas
+    frame=single,                        % Moldura ao redor do código
+    breaklines=true,                     % Quebra automática das linhas longas
+    captionpos=t,                        % Posição da legenda
+    showstringspaces=false               % Não mostra espaços em branco nas strings
+    extendedchars=true,
+    literate={º}{{${ }^{\underline{o}}$}}1 {á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {É}{{\'E}}1 {ê}{{\^e}}1 {ë}{{\"e}}1 {í}{{\'i}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~o}}1 {ó}{{\'o}}1 {ô}{{\^o}}1 {ú}{{\'u}}1 {â}{{\^a}}1 {~}{{$\sim$}}1
+}
+
+
+\title{%
+\textbf{\huge Universidade Federal do Rio de Janeiro} \par
+\textbf{\LARGE Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia} \par
+\includegraphics[width=8cm]{COPPE UFRJ.png} \par
+\textbf{Programa de Engenharia de Sistemas e Computação} \par
+\large
+CPS769 - Introdução à Inteligência Artificial e Aprendizagem Generativa \newline \par
+\small
+Prof. Dr. Edmundo de Souza e Silva (PESC/COPPE/UFRJ)\par 
+Profa. Dra. Rosa M. Leão (PESC/COPPE/UFRJ)\par 
+Participação Especial: Gaspare Bruno (Diretor Inovação, ANLIX) \par
+
+\vspace{1\baselineskip}
+\Large
+\textbf{\textit{Lista de Exercícios 4
+}}
+}
+
+\author{Luiz Henrique Souza Caldas\\email: lhscaldas@cos.ufrj.br}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Questão 1}
+
+O objetivo da lista é muito simples: entender um módulo de código e relacionar com os artigos que vimos até o momento.
+
+Na lista 1a, você usou Python e TensorFlow para criar um modelo RNN, sendo que o código foi disponibilizado (já pronto). O programa continha:
+
+\begin{verbatim}
+# Define the RNN model
+
+model = models.Sequential([
+
+layers.LSTM(50, activation=’relu’, input_shape=(num_repeats, 2)),
+
+layers.Dense(2)
+
+])
+\end{verbatim}
+
+Descreva e faça um desenho para explicar qual o modelo LSTM usado. Como o modelo trata os dados temporais? Compare com a Figura 3 do artigo \textit{Generating Text with Recurrent Neural Networks}.
+
+\textbf{Resposta:}
+
+O modelo LSTM (Long Short-Term Memory) possui 50 neurônios em sua camada escondida, ou seja, as duas entradas serão transformadas em um vetor de 50 dimensões, que será o resultado da saída da função de ativação 'ReLU' aplicada ao produto escalar das entradas pelos respectivos pesos.
+
+Em cada etapa temporal, a LSTM atualiza seu estado interno baseado nas entradas atuais, no estado anterior e nas saídas anteriores, preservando informações importantes ao longo da sequência. Os gates (portas) da LSTM são mecanismos que controlam o fluxo de informações dentro da célula de memória ao longo do tempo. Eles são essenciais para permitir que a LSTM decida o que lembrar e o que esquecer de uma sequência de dados. Existem três principais gates na LSTM:
+
+\begin{itemize}
+    \item Forget Gate (Porta de Esquecimento): Esta porta decide quanta da informação antiga deve ser esquecida. Ela recebe a entrada atual e o estado anterior e gera um valor entre 0 e 1 para cada número na célula de memória. Um valor próximo de 0 significa que a informação será esquecida, enquanto um valor próximo de 1 significa que a informação será mantida.
+    \item Input Gate (Porta de Entrada): A porta de entrada decide quanta da nova informação que está chegando deve ser armazenada na célula de memória. Assim como a porta de esquecimento, ela gera valores entre 0 e 1 que determinam quanto da nova informação será adicionada ao estado da memória.
+    \item Output Gate (Porta de Saída): A porta de saída decide quanta da informação da célula de memória será utilizada para gerar a saída atual da LSTM. Ela controla o que será passado para o próximo estado oculto e para a próxima camada da rede.
+\end{itemize}
+
+Essas portas trabalham juntas para garantir que informações relevantes sejam mantidas ao longo de várias etapas temporais, enquanto dados irrelevantes são descartados.
+
+Sua estrutura pode ser observada no diagrama abaixo, com a diferença de que na figura abaixo a função de ativação é a tangente hiperbólica (tanh), enquanto que no código da lista 1a a função de ativação era a ReLU. Os gates são representados pelos 3 conjuntos de um bloco de soma ($+$) e um bloco com a função de ativação sigmóide ($\sigma$). Da esquerda para a direita, os gates na figura estão posicionados na seguinte ordem: esquecimento, entrada e saída. 
+
+\begin{figure}[H]
+    \caption{Diagrama do modelo LSTM}
+    \centering
+    \includegraphics[width=10cm]{LSTM.jpg}
+    \small
+
+    Fonte: \href{https://blog.mlreview.com/understanding-lstm-and-its-diagrams-37e2f46f1714}{\textit{Understanding LSTM and its diagrams}}.
+\end{figure}
+
+Comparando com a Figura 3 do artigo \textit{Generating Text with Recurrent Neural Networks} (Hinton, 2011), a LSTM usa uma abordagem mais direta, com células que lembram informações importantes por longos períodos. Enquanto a LSTM opera principalmente através de somas ponderadas e funções de ativação simples como ReLU, a MRNN utiliza uma abordagem mais complexa onde os pesos ocultos são ajustados dinamicamente através de operações multiplicativas baseadas nos dados de entrada. Isso torna a MRNN mais flexível e capaz de capturar detalhes mais finos nos dados, especialmente em tarefas de modelagem de texto, mas também a torna mais complexa e exigente em termos de poder computacional.
+
+\begin{figure}[H]
+    \caption{Figura 3 do artigo \textit{Generating Text with Recurrent Neural Networks}}
+    \centering
+    \includegraphics[width=10cm]{fig3_hinton2011.jpg}
+    \small
+    
+    Fonte: \href{https://www.researchgate.net/publication/221345823_Generating_Text_with_Recurrent_Neural_Networks}{Hinton, 2011}.
+\end{figure}
+
+
+\section*{Repositório}
+Este relatório encontra-se também no repositório \href{https://github.com/lhscaldas/cps769-ai-gen}{https://github.com/lhscaldas/cps769-ai-gen}.
+
+\end{document}
