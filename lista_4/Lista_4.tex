@@ -79,17 +79,17 @@ O objetivo da lista é muito simples: entender um módulo de código e relaciona
 
 Na lista 1a, você usou Python e TensorFlow para criar um modelo RNN, sendo que o código foi disponibilizado (já pronto). O programa continha:
 
-\begin{verbatim}
+\begin{lstlisting}[language=Python]
 # Define the RNN model
 
 model = models.Sequential([
 
-layers.LSTM(50, activation=’relu’, input_shape=(num_repeats, 2)),
+layers.LSTM(50, activation='relu', input_shape=(num_repeats, 2)),
 
 layers.Dense(2)
 
 ])
-\end{verbatim}
+\end{lstlisting}
 
 Descreva e faça um desenho para explicar qual o modelo LSTM usado. Como o modelo trata os dados temporais? Compare com a Figura 3 do artigo \textit{Generating Text with Recurrent Neural Networks}.
 
