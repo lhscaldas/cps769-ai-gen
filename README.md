@@ -32,7 +32,7 @@ Este repositório contém as listas de exercícios da disciplina CPS769 - Introd
    - **Assunto:** Aplicação de LLM com a API da OpenAI para interpretar e responder perguntas sobre dados meteorológicos, utilizando técnicas de chamada de função em Python e análise de dados com PandasSQL.
 
 6. [Lista de Exercícios 4](./lista_4)
-   - **Assunto:** Explicação do funcionamento de uma LSTM.
+   - **Assunto:** Explicação do funcionamento da LSTM utilizada na Lista de Exercícios 1a.
 
 
 ## Instruções
