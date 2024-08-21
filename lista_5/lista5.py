@@ -18,7 +18,6 @@ def extract_text(input_path):
         # Se for uma URL, faz o download do conteúdo
         response = requests.get(input_path)
         response.raise_for_status()  # Levanta um erro se a requisição falhar
-        print(response.text)
 
         # Extraí o texto da página web
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -84,7 +83,7 @@ def retrieve_relevant_chunks(query: str, index: FAISS) -> List[str]:
 # Define a estrutura de resposta para a API da OpenAI
 class AnswerResponse(BaseModel):
     """Respond in a conversational manner to answer the question based on the context provided."""
-    response: str = Field(description="A response to the user's question based on the context provided")
+    response: str = Field(description="A response to the user's question based on the context provided. If the answer is not in the context, say 'Sei lá'")
 
 # Setup do modelo da OpenAI usando LangChain
 llm = ChatOpenAI(
@@ -176,5 +175,16 @@ print(f"Resposta: {resposta}\n")
 question = 'Quais são as principais diferenças entre uma rede neural feedforward e uma rede neural recorrente (RNN)?'
 resposta = answer_question(pdf_path, question)
 print(f"Pergunta 3: {question}\n")
+print(f"Resposta: {resposta}\n")
+
+# Teste 4
+pdf_path = 'lista_5/teste_3.pdf'
+question = 'Do que o Silvio Santos Morreu?'
+resposta = answer_question(pdf_path, question)
+print(f"Pergunta 1: {question}\n")
+print(f"Resposta: {resposta}\n")
+question = 'Quem é o pai do Ash?'
+resposta = answer_question(pdf_path, question)
+print(f"Pergunta 2: {question}\n")
 print(f"Resposta: {resposta}\n")
 
