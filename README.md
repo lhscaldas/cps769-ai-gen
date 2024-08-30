@@ -37,6 +37,9 @@ Este repositório contém as listas de exercícios da disciplina CPS769 - Introd
 8. [Lista de Exercícios 5](./lista_5)
    - **Assunto:** Implementação de aplicação para conversar com um artigo em PDF utilizando RAG e a API da OpenAI.
 
+9. [Trabalho Final](./lista_5)
+   - **Assunto:** Implementação de aplicação para conversar com um banco de dados de redes utilizando a API da OpenAI e o Conceito de Chain of Thoughts.
+
 
 ## Instruções
 
