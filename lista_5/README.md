@@ -104,7 +104,7 @@ Finalmente, podemos usar a API da OpenAI para gerar a resposta a partir dos trec
 # Define a estrutura de resposta para a API da OpenAI
 class AnswerResponse(BaseModel):
     """Respond in a conversational manner to answer the question based on the context provided."""
-    response: str = Field(description="A response to the user's question based on the context provided")
+    response: str = Field(description="A response to the user's question based on the context provided. If the answer is not in the context, say 'Sei lá'")
 
 # Setup do modelo da OpenAI usando LangChain
 llm = ChatOpenAI(
